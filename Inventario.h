@@ -48,5 +48,9 @@ Articulo azadon(155.17, 12, "Azadon de 110 cm con mango", UNIDAD);
 Articulo machete(88.19, 6, "Machete truper", UNIDAD);
 Articulo Jardineria[4] = {pico, pala, azadon, machete};
 
-//Otros
-//Pinturas
+//7. Pintura
+Articulo brocha(41.50, 30, "Brocha para pintar ", UNIDAD);
+Articulo rodilloYBandeja(114.30, 25, "Rodillo y Bandeja", UNIDAD);
+Articulo escalera(3540.50, 15, "Escalera tipo A8'", UNIDAD);
+Articulo galonPintura(950.60, 50, "Galon de Pintura Sherwin-Williams", UNIDAD);
+Articulo Pintura[4] = {brocha, rodilloYBandeja, escalera, galonPintura};
