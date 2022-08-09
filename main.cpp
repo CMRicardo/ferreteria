@@ -19,7 +19,7 @@ int main() {
   do {
     // Mostramos las instrucciones
     mostrarMenu();
-    cout << "Ingrese una opcion: ";
+    cout << endl << "Ingrese una opcion: ";
     cin >> opcion;
 
     switch (opcion) {
@@ -59,7 +59,6 @@ int main() {
         break;
       case 7:
         creditos();
-        // Funión para mostrar los créditos.
         break;
 
       default:

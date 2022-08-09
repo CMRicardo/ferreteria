@@ -1,21 +1,35 @@
+int ElegirArticulo() {
+  int opcion;
+  cout << endl << "Seleccione el producto: ";
+  cin >> opcion;
+  if (!(opcion >= 1 && opcion <= 4)) {
+    cout << endl << "Ha puesto un numero invalido ;(" << endl;
+  }
+  return opcion;
+}
+
 void MostrarVentasxProducto(Articulo* arrayCategoria, string nombreCategoria) {
-  int producto, cantidad = 0;
-  cout << nombreCategoria << endl;
+  cout << endl << nombreCategoria << endl;
+  int opcion;
   for (int i = 0; i < 4; i++) {
     cout << i + 1 << ". Nombre: " << arrayCategoria[i].nombre << endl;
-    cout << "Unidades disponibles: " << arrayCategoria[i].cantidad << endl;
-    cout << "Unidades vendidas: " << arrayCategoria[i].cantidadVendida << endl;
-    cout << "Precio por unidad: " << arrayCategoria[i].precio << endl;
-    cout << "Total vendido de este producto es: "
-         << arrayCategoria[i].cantidadVendida * arrayCategoria[i].precio << endl
-         << endl;
   }
+  opcion = ElegirArticulo();
+  Articulo seleccion = arrayCategoria[opcion - 1];
+
+  cout << endl << "Nombre: " << seleccion.nombre << endl;
+  cout << "Unidades disponibles: " << seleccion.cantidad << endl;
+  cout << "Precio por unidad: " << seleccion.precio << endl;
+  cout << "Unidades vendidas: " << seleccion.cantidadVendida << endl;
+  cout << "Total vendido de este producto es: "
+       << seleccion.cantidadVendida * seleccion.precio << endl
+       << endl;
   cout << endl;
 }
 
 void VentasxProducto() {
   int categoria;
-  cout << "-------> Categorias <-------" << endl;
+  cout << endl << "-------> Categorias <-------" << endl;
   cout << "1.Herramientas." << endl;
   cout << "2.Fontaneria." << endl;
   cout << "3.Construccion." << endl;
@@ -23,7 +37,7 @@ void VentasxProducto() {
   cout << "5.Hogar." << endl;
   cout << "6.Jardineria." << endl;
   cout << "7.Otros." << endl;
-  cout << "Que categoria desea consultar?: ";
+  cout << endl << "Que categoria desea consultar?: ";
   cin >> categoria;
 
   switch (categoria) {

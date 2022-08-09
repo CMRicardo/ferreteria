@@ -9,7 +9,8 @@ using namespace std;
 void jugarPega3() {
   int nivel = 0, a, b, c, a1, b2, c3;
   srand(time(0));
-  cout << "Hola, jugar pega 3 es un juego en donde tendras que adivinar los 3 "
+  cout << endl
+       << "Hola, jugar pega 3 es un juego en donde tendras que adivinar los 3 "
           "numeros.";
   do {
     cout << endl << "Elige la dificultad en la que desees jugar: " << endl;
@@ -22,7 +23,8 @@ void jugarPega3() {
         b = 1 + rand() % 3;
         c = 1 + rand() % 3;
 
-        cout << "DIFICULTAD FACIL, ELIJE TRES NUMEROS DEL 1 AL 3, SUERTE"
+        cout << endl
+             << "DIFICULTAD FACIL, ELIJE TRES NUMEROS DEL 1 AL 3, SUERTE"
              << endl
              << endl;
         cout << "Digite su primer numero: ";
