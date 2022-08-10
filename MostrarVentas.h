@@ -7,8 +7,8 @@ void MostrarVentas(Articulo* arrayCategoria, string nombreCategoria) {
     cout << "Unidades disponibles: " << seleccion.cantidad << endl;
     cout << "Precio por unidad: " << seleccion.precio << endl;
     cout << "Unidades vendidas: " << seleccion.cantidadVendida << endl;
-    cout << "Total vendido de este producto es: "
-         << seleccion.cantidadVendida * seleccion.precio << endl
+    cout << "Total vendido de este producto es: " << seleccion.valorTotalVendido
+         << endl
          << endl;
   }
 }

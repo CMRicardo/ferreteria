@@ -32,15 +32,22 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
   Articulo seleccion = arrayCategoria[producto - 1];
 
   if (cantidad <= seleccion.cantidad) {
-    // Restamos la cantidad que compro el usuario
-    arrayCategoria[producto - 1].cantidad -= cantidad;
+    double totalAPagar = Descuento(cantidad, seleccion.precio);
 
     if (producto >= 1 && producto <= 4) {
-      cout << endl << "----------- Factura -----------" << endl;
-      cout << cantidad << "x " << seleccion.nombre << " - "
-           << seleccion.precio * cantidad << endl;
-      arrayCategoria[producto - 1].cantidadVendida += cantidad;
-      cout << "Se ha realizado su compra ;)" << endl;
+      if (arrayCategoria[producto - 1].cantidad >= 1) {
+        // Restamos la cantidad que compro el usuario
+        arrayCategoria[producto - 1].cantidad -= cantidad;
+        cout << endl << "----------- Factura -----------" << endl;
+        cout << cantidad << "x " << seleccion.nombre << " - "
+             << cantidad * seleccion.precio << endl;
+        cout << "El total a pagar es " << totalAPagar << endl;
+        arrayCategoria[producto - 1].cantidadVendida += cantidad;
+        arrayCategoria[producto - 1].valorTotalVendido += totalAPagar;
+        cout << "Se ha realizado su compra ;)" << endl;
+      } else {
+        cout << "No hay existencias de este articulos :(" << endl;
+      }
     }
   } else {
     int deseaComprarMax;
@@ -49,13 +56,14 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
     cin >> deseaComprarMax;
 
     if (deseaComprarMax == 1) {
+      double totalAPagar = Descuento(seleccion.cantidad, seleccion.precio);
       // Asignamos la cantidad total a la cantidad vendida
       arrayCategoria[producto - 1].cantidadVendida =
           arrayCategoria[producto - 1].cantidad;
 
       cout << endl << "----------- Factura -----------" << endl;
       cout << seleccion.cantidad << "x " << seleccion.nombre << " - "
-           << seleccion.precio * seleccion.cantidad << endl;
+           << totalAPagar << endl;
 
       // Asignamos la cantidad a 0 para indicar que ya no hay stock
       arrayCategoria[producto - 1].cantidad = 0;

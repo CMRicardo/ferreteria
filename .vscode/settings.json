@@ -3,7 +3,9 @@
   "files.associations": {
     "iostream": "cpp",
     "ostream": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "ios": "cpp",
+    "iomanip": "cpp"
   },
   "cSpell.words": [
     "creditos",

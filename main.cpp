@@ -4,6 +4,7 @@
 // 💡 Los archivos extra deben ser con extensión ".h"
 #include "Articulo.h"
 #include "Creditos.h"
+#include "Descuento.h"
 #include "Inventario.h"
 #include "Menu.h"
 #include "Mostrar.h"

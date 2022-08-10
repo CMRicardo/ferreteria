@@ -11,7 +11,7 @@ enum Medida {
 
 class Articulo {
  public:
-  double precio;
+  double precio, valorTotalVendido = 0;
   int cantidad, cantidadVendida = 0;
   string nombre;
   Medida medida;
