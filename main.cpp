@@ -13,11 +13,11 @@
 #include "Ventas.h"
 
 using namespace std;
+
 int main() {
   int opcion = 0;
 
   do {
-    // Mostramos las instrucciones
     mostrarMenu();
     cout << endl << "Ingrese una opcion: ";
     cin >> opcion;
@@ -50,8 +50,8 @@ int main() {
       case 4:
         VentasxProducto();
         break;
+
       case 5:
-        // Función para el total de ventas de detalle.
         MostrarVentas(Herramientas, "Herramientas");
         MostrarVentas(Fontaneria, "Fontaneria");
         MostrarVentas(Construccion, "Construccion");
@@ -60,9 +60,11 @@ int main() {
         MostrarVentas(Jardineria, "Jardineria");
         MostrarVentas(Otros, "Otros");
         break;
+
       case 6:
         jugarPega3();
         break;
+
       case 7:
         creditos();
         break;

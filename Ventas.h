@@ -27,33 +27,37 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
     }
   }
   cout << endl;
+
   venderArticulo(producto, cantidad);
-  if (cantidad <= arrayCategoria[producto - 1].cantidad) {
+  Articulo seleccion = arrayCategoria[producto - 1];
+
+  if (cantidad <= seleccion.cantidad) {
+    // Restamos la cantidad que compro el usuario
     arrayCategoria[producto - 1].cantidad -= cantidad;
+
     if (producto >= 1 && producto <= 4) {
       cout << endl << "----------- Factura -----------" << endl;
-      cout << cantidad << "x " << arrayCategoria[producto - 1].nombre << " - "
-           << arrayCategoria[producto - 1].precio * cantidad << endl;
+      cout << cantidad << "x " << seleccion.nombre << " - "
+           << seleccion.precio * cantidad << endl;
       arrayCategoria[producto - 1].cantidadVendida += cantidad;
       cout << "Se ha realizado su compra ;)" << endl;
     }
   } else {
     int deseaComprarMax;
-    cout << "La cantidad maxima que tenemos es: "
-         << arrayCategoria[producto - 1].cantidad << endl;
+    cout << "La cantidad maxima que tenemos es: " << seleccion.cantidad << endl;
     cout << "Desea comprarlo?(1 para si, 2 para no.): ";
     cin >> deseaComprarMax;
 
     if (deseaComprarMax == 1) {
+      // Asignamos la cantidad total a la cantidad vendida
       arrayCategoria[producto - 1].cantidadVendida =
           arrayCategoria[producto - 1].cantidad;
 
       cout << endl << "----------- Factura -----------" << endl;
-      cout << arrayCategoria[producto - 1].cantidad << "x "
-           << arrayCategoria[producto - 1].nombre << " - "
-           << arrayCategoria[producto - 1].precio *
-                  arrayCategoria[producto - 1].cantidad
-           << endl;
+      cout << seleccion.cantidad << "x " << seleccion.nombre << " - "
+           << seleccion.precio * seleccion.cantidad << endl;
+
+      // Asignamos la cantidad a 0 para indicar que ya no hay stock
       arrayCategoria[producto - 1].cantidad = 0;
       cout << "Se a realizado su compra :)" << endl;
     } else if (deseaComprarMax == 2) {
@@ -67,6 +71,7 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
 
 void Ventas() {
   int categoria;
+
   cout << "Categorias: " << endl;
   cout << "1.Herramientas." << endl;
   cout << "2.Fontaneria." << endl;
@@ -77,6 +82,7 @@ void Ventas() {
   cout << "7.Otros." << endl;
   cout << "En que categoria esta el producto que desea comprar?: ";
   cin >> categoria;
+
   switch (categoria) {
     case 1:
       mostrarCategoria(Herramientas, "Herramientas");

@@ -23,8 +23,8 @@ void MostrarVentasxProducto(Articulo* arrayCategoria, string nombreCategoria) {
   cout << "Unidades vendidas: " << seleccion.cantidadVendida << endl;
   cout << "Total vendido de este producto es: "
        << seleccion.cantidadVendida * seleccion.precio << endl
+       << endl
        << endl;
-  cout << endl;
 }
 
 void VentasxProducto() {
