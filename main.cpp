@@ -7,12 +7,12 @@
 #include "Inventario.h"
 #include "Menu.h"
 #include "Mostrar.h"
+#include "MostrarVentas.h"
 #include "Pega3.h"
 #include "Ventas-X-Producto.h"
 #include "Ventas.h"
 
 using namespace std;
-
 int main() {
   int opcion = 0;
 
@@ -24,7 +24,6 @@ int main() {
 
     switch (opcion) {
       case 1:
-        // Función para vender articulo
         Ventas();
         break;
 
@@ -53,6 +52,13 @@ int main() {
         break;
       case 5:
         // Función para el total de ventas de detalle.
+        MostrarVentas(Herramientas, "Herramientas");
+        MostrarVentas(Fontaneria, "Fontaneria");
+        MostrarVentas(Construccion, "Construccion");
+        MostrarVentas(Electricidad, "Electricidad");
+        MostrarVentas(Hogar, "Hogar");
+        MostrarVentas(Jardineria, "Jardineria");
+        MostrarVentas(Otros, "Otros");
         break;
       case 6:
         jugarPega3();
