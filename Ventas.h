@@ -18,6 +18,8 @@ void venderArticulo(int& producto, int& cantidad) {
 
 void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
   int producto, cantidad = 0;
+  static int cantidadProductosVendidos = 0;
+
   cout << nombreCategoria << endl;
   for (int i = 0; i < 4; i++) {
     if (!(arrayCategoria[i].cantidad == 0)) {
@@ -32,13 +34,15 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
   Articulo seleccion = arrayCategoria[producto - 1];
 
   if (cantidad <= seleccion.cantidad) {
-    double totalAPagar = Descuento(cantidad, seleccion.precio);
-
     if (producto >= 1 && producto <= 4) {
       if (arrayCategoria[producto - 1].cantidad >= 1) {
         // Restamos la cantidad que compro el usuario
         arrayCategoria[producto - 1].cantidad -= cantidad;
+
         cout << endl << "----------- Factura -----------" << endl;
+        double totalAPagar = Descuento(cantidad, seleccion.precio);
+        cantidadProductosVendidos += cantidad;
+
         cout << cantidad << "x " << seleccion.nombre << " - "
              << cantidad * seleccion.precio << endl;
         cout << "El total a pagar es " << totalAPagar << endl;
@@ -56,12 +60,14 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
     cin >> deseaComprarMax;
 
     if (deseaComprarMax == 1) {
-      double totalAPagar = Descuento(seleccion.cantidad, seleccion.precio);
       // Asignamos la cantidad total a la cantidad vendida
       arrayCategoria[producto - 1].cantidadVendida =
           arrayCategoria[producto - 1].cantidad;
 
+      cantidadProductosVendidos += seleccion.cantidad;
+
       cout << endl << "----------- Factura -----------" << endl;
+      double totalAPagar = Descuento(seleccion.cantidad, seleccion.precio);
       cout << seleccion.cantidad << "x " << seleccion.nombre << " - "
            << totalAPagar << endl;
 
@@ -75,6 +81,12 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
       cout << "Compra cancelada, vuelva pronto ;)" << endl;
     }
   }
+
+  cout << endl
+       << "----------------------------------------" << endl
+       << "En total hemos vendido " << cantidadProductosVendidos << " productos"
+       << endl
+       << "----------------------------------------" << endl;
 }
 
 void Ventas() {

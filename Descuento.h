@@ -8,13 +8,13 @@ double Descuento(int cantidad, double precio) {
   if (cantidad == 12) {
     descuentoNeto = (precio * descTreinta);
     precioTotal = (precio - descuentoNeto) * cantidad;
-    cout << "Aplica un descuento del 30%";
+    cout << "Aplica un descuento del 30%" << endl;
   } else if (cantidad != 12 && cantidad > 20) {
     descuentoNeto = (precio * descCincuenta);
     precioTotal = (precio - descuentoNeto) * cantidad;
-    cout << "Aplica un descuento del 50%";
+    cout << "Aplica un descuento del 50%" << endl;
   } else {
-    cout << "No aplica para algun descuento";
+    cout << "No aplica para algun descuento" << endl;
     precioTotal = cantidad * precio;
   }
 
