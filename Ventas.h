@@ -33,7 +33,14 @@ void mostrarCategoria(Articulo* arrayCategoria, string nombreCategoria) {
   venderArticulo(producto, cantidad);
   Articulo seleccion = arrayCategoria[producto - 1];
 
-  if (cantidad <= seleccion.cantidad && cantidad>=1) {
+  if (cantidad <= seleccion.cantidad) {
+    // Si el numero es negativo mostramos un mensaje y
+    // no hacemos nada más
+    if (cantidad < 0) {
+      cout << "Ingreso un numero negativo" << endl;
+      return;
+    }
+
     if (producto >= 1 && producto <= 4) {
       if (seleccion.cantidad >= 1) {
         // Restamos la cantidad que compro el usuario
